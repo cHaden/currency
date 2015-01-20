@@ -40,4 +40,17 @@ class CurrencyTest < Minitest::Test
     assert_equal "USD", (dollar1 - dollar2).code
   end
 
+  def test_adding_and_subtracting_with_different_currency_codes
+    dollar = Currency.new( 1.00, "USD")
+    euro = Currency.new( 1.00, "EUR")
+
+    assert_raises( DifferentCurrencyCodeError ) do
+      dollar + euro
+    end
+
+    assert_raises( DifferentCurrencyCodeError) do
+      dollar - euro
+    end
+  end
+
 end

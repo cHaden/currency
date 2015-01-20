@@ -1,3 +1,6 @@
+class DifferentCurrencyCodeError < StandardError  
+end
+
 class Currency
 
   attr_reader :amount, :code
@@ -23,7 +26,8 @@ class Currency
     if @code == otherCurrencyObject.code
       return self.class.new(@amount + otherCurrencyObject.amount, @code)
     else
-      #error! maybe should throw an exception if we're being nice?
+      #error!
+      raise DifferentCurrencyCodeError, "Can only subtract currencies with the same currency code"
       return nil
     end
   end
@@ -32,7 +36,8 @@ class Currency
     if @code == otherCurrencyObject.code
       return self.class.new(@amount - otherCurrencyObject.amount, @code)
     else
-      #error! maybe should throw an exception?
+      #error!
+      raise DifferentCurrencyCodeError, "Can only subtract currencies with the same currency code"
       return nil
     end
   end
