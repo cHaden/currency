@@ -18,5 +18,9 @@ class Currency
       return false
     end
   end
-  
+
+  def +( otherCurrencyObject )
+    return self.class.new(@amount + otherCurrencyObject.amount, @code)
+  end
+
 end
