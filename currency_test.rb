@@ -53,4 +53,14 @@ class CurrencyTest < Minitest::Test
     end
   end
 
+  def test_multiplication
+    dollar = Currency.new( 2.00, "USD" )
+    float = 2.0
+    fixnum = 4
+
+    assert_equal 4.00, (dollar * float).amount
+    assert_equal 8.00, (dollar * fixnum).amount
+
+  end
+
 end

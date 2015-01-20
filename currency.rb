@@ -1,4 +1,4 @@
-class DifferentCurrencyCodeError < StandardError  
+class DifferentCurrencyCodeError < StandardError
 end
 
 class Currency
@@ -40,6 +40,10 @@ class Currency
       raise DifferentCurrencyCodeError, "Can only subtract currencies with the same currency code"
       return nil
     end
+  end
+
+  def *( number )
+    return self.class.new( @amount * number, @code )
   end
 
 end
