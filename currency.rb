@@ -20,7 +20,21 @@ class Currency
   end
 
   def +( otherCurrencyObject )
-    return self.class.new(@amount + otherCurrencyObject.amount, @code)
+    if @code == otherCurrencyObject.code
+      return self.class.new(@amount + otherCurrencyObject.amount, @code)
+    else
+      #error! maybe should throw an exception if we're being nice?
+      return nil
+    end
+  end
+
+  def -( otherCurrencyObject )
+    if @code == otherCurrencyObject.code
+      return self.class.new(@amount - otherCurrencyObject.amount, @code)
+    else
+      #error! maybe should throw an exception?
+      return nil
+    end
   end
 
 end

@@ -27,9 +27,17 @@ class CurrencyTest < Minitest::Test
   def test_addition
     dollar1 = Currency.new( 1.00, "USD")
     dollar2 = Currency.new( 1.00, "USD")
-    
+
     assert_equal 2, (dollar1 + dollar2).amount
     assert_equal "USD", (dollar1 + dollar2).code
+  end
+
+  def test_subtraction
+    dollar1 = Currency.new( 2.00, "USD")
+    dollar2 = Currency.new( 1.00, "USD")
+
+    assert_equal 1, (dollar1 - dollar2).amount
+    assert_equal "USD", (dollar1 - dollar2).code
   end
 
 end
