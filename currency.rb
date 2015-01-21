@@ -14,6 +14,10 @@ class Currency
     @code = code
   end
 
+  def convert( code )
+    #convert to currency of type code
+  end
+
   def ==( otherCurrencyObject)
     if @amount == otherCurrencyObject.amount && @code == otherCurrencyObject.code
       return true
